@@ -21,10 +21,12 @@ end_value.pack()
 
 
 def print_name():
-    sts = entry_list.get().split(",")
-    sv = start_value.get()
-    lv = end_value.get()
-    run(sts,int(sv),int(lv))
+    statistics_list = entry_list.get().split(",")
+    started_value = int(start_value.get())
+    last_value = int(end_value.get())
+    # 
+    run(statistics_list,started_value,last_value)
+    # 
     entry_list.delete(0,tk.END)
     start_value.delete(0,tk.END)
     end_value.delete(0,tk.END)
@@ -37,7 +39,6 @@ def run(lsv,sv,lv):
         for i ,k in gets.items():
             tk.Label(master=root,text=str(i)+'\t'+str(k[1])).pack() 
         sv += lv+1
-
 
 btn = tk.Button(master=root,text="Print",command=print_name)
 btn.pack()
